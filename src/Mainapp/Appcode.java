@@ -24,14 +24,14 @@ public class Appcode  extends JFrame{
     private JButton btnname,btndate;
     private JLabel lbten,lbnsinh,ghichu,rengaysinh,lbnam;
     private JPanel input,button,result;
+ 
     public Appcode(){
-        
+ 
         //khai báo panel nhập dữ liệu
         input = new JPanel();
+        
         getContentPane().add(input); 
         input.setBorder(new TitledBorder("Dữ liệu đầu vào"));
-        
-        
         
         //label họ tên
         lbten = new JLabel("Nhập họ tên của bạn");
@@ -88,7 +88,7 @@ public class Appcode  extends JFrame{
         
         
         //textbox kết quả dộ dài tên
-        rename = new JTextField("15");
+        rename = new JTextField("15 ký tự");
         rename.setPreferredSize(new Dimension(270,26));
         rename.setEditable(false);
         rename.setBackground(Color.white);
@@ -138,19 +138,19 @@ public class Appcode  extends JFrame{
     }
     
     private class ButtonHandler implements ActionListener{ 
-         public void actionPerformed( ActionEvent event ){
-            if ( event.getSource() ==  btnname){
+         public void actionPerformed(ActionEvent event){
+            if(event.getSource() ==  btnname){
                 String str = txtten.getText();
-                rename.setText(Integer.toString(str.length()));
+                rename.setText(str.length() + " ký tự");
             }
-            if ( event.getSource() ==  btndate){
+            if(event.getSource() ==  btndate){
                  String dates = ngaysinh.getText();
                 if(isValidDate(dates)==true){
                     int s=0,a=0;
                     String []arr = dates.split("/");
                     for(int i=0;i<arr.length;i++){
                         s+=Integer.parseInt(arr[i]);
-                    }
+                    }   
                     for(int j=2;j<s;j++){
                         if(s%j==0){
                             a=1;
@@ -166,7 +166,7 @@ public class Appcode  extends JFrame{
                     }
                 }else{
                     //hiển thị dialog khi ngày sinh nhập vào không hợp lệ
-                    JOptionPane.showMessageDialog(input, "Ngày sinh không hợp lệ.Hãy kiểm tra lại !");
+                    JOptionPane.showMessageDialog(input, "Ngày sinh không hợp lệ.Hãy kiểm tra lại !","Thông báo",JOptionPane.ERROR_MESSAGE,null);
                     reyear.setText("Ngày sinh không hợp lệ !");
                     reyear.setForeground(Color.red);
                 }
