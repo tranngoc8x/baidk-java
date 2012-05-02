@@ -11,7 +11,6 @@ package Mainapp;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
 public class Eprojects{
-    //private static int EXIT_ON_CLOSE;
     public static void main(String []args){
         Appcode fr = new Appcode();
         fr.setTitle("TRAN NGOC THANG LOP CNTT K15B");
